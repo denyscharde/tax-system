@@ -17,7 +17,7 @@ public class DatabaseJdbcConnector {
     }
 
     private DatabaseJdbcConnector() {
-        String url = "jdbc:postgresql:// localhost:5432/tax";
+        String url = "jdbc:postgresql://localhost:5432/tax";
         String user = "user";
         String pass = "password";
         try {
