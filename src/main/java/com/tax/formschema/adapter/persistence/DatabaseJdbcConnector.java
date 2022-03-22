@@ -3,6 +3,7 @@ package com.tax.formschema.adapter.persistence;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DatabaseJdbcConnector {
 
@@ -26,6 +27,16 @@ public class DatabaseJdbcConnector {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
+        String ddl = "CREATE TABLE IF NOT EXISTS form_schema (id int primary key, form varchar)";
+        try {
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(ddl);
+            statement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public Connection getConnection() {

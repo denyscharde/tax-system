@@ -8,8 +8,9 @@ public class FormCreationService {
     FormContentFactory formContentFactory = new FormContentFactory();
     FormsRepository formsRepository = new FormsRepositoryImpl();
 
-    public void createFormDefinition(NewFormDefinitionDTO formDefinitionDTO) {
+    public FormDefinition createFormDefinition(NewFormDefinitionDTO formDefinitionDTO) {
         FormDefinition formDefinition = new FormDefinition();
         formDefinition.setFormContent(formContentFactory.createFormContent(formDefinitionDTO.getFormType(), formDefinitionDTO.formDefinition));
+        return formDefinition;
     }
 }
