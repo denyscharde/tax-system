@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+  postgres_user:
+    container_name: postgres_user
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: tax
+      PGDATA: /data/postgres
+    volumes:
+      - tax:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  tax:

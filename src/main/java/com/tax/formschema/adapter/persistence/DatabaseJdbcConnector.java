@@ -17,11 +17,11 @@ public class DatabaseJdbcConnector {
     }
 
     private DatabaseJdbcConnector() {
-        String url = "jdbc:mysql:// localhost:3306/taxform";
-        String user = "root";
-        String pass = "root";
+        String url = "jdbc:postgresql:// localhost:5432/tax";
+        String user = "user";
+        String pass = "password";
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, user, pass);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
