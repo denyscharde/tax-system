@@ -1,8 +1,8 @@
 version: '3.5'
 
 services:
-  postgres_user:
-    container_name: postgres_user
+  postgres_tax:
+    container_name: postgres_tax
     image: postgres
     environment:
       POSTGRES_USER: user
